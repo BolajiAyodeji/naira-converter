@@ -1,0 +1,16 @@
+body {
+  margin: 15px;
+  background-color: white;
+  text-align: center;
+}
+.select {
+  margin-top: 50px;
+}
+.conversion {
+  margin: 25px 0;
+}
+.btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+}
