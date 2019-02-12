@@ -1,9 +1,11 @@
 const currencies = [
   {id: 'USD', name: 'US Dollars'},
+  {id: 'EUR', name: 'Euro'},
   {id: 'UGX', name: 'Ugandan Shillings'},
   {id: 'KES', name: 'Kenyan Shillings'},
   {id: 'GHS', name: 'Ghanian Cedi'},
-  {id: 'ZAR', name: 'South African Rand'}
+  {id: 'ZAR', name: 'South African Rand'},
+  {id: 'ZMW', name: 'Zambian Kwacha'}
   ];
 
 const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
