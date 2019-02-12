@@ -2,6 +2,7 @@ const currencies = [
   {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
   {id: 'EUR', name: 'Euro'},
+  {id: 'GBP', name: 'Pounds'},
   {id: 'CNY', name: 'Chinese Yuan'},
   {id: 'CZK', name: 'Czech Koruna'},
   {id: 'INR', name: 'Indian Rupee'},
