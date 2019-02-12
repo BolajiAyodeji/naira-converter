@@ -80,10 +80,15 @@ const endpoint = api(selected);
 // variable declared above, convert the response to JSON,
 // then call conversionSucceeded and pass the JSON data to it
 
-let getData = fetch(endpoint);
-getData.then(data => data.json)
+let getData = fetch(endpoint)
+  getData.then((response) => response.json())
+  getData.then(function(data) {
+    conversionSucceeded(getData);
+  })
+  .catch(function(error) {
+    console.log(JSON.stringify(error));
+  });
 console.log(getData);
-conversionSucceeded(getData);
 
 };
 
