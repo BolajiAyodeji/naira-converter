@@ -1,12 +1,3 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-      navigator.serviceWorker.register('../sw.js')
-          .then(function () {
-              console.log("Service Worker Registered");
-          });
-  });
-}
-
 const currencies = [
   {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
@@ -144,3 +135,13 @@ btn.addEventListener('click', convert);
 };
 
 startApp();
+
+// register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js')
+          .then(function () {
+              console.log("Service Worker Registered");
+          });
+  });
+}
