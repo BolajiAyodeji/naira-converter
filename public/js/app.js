@@ -1,11 +1,26 @@
 const currencies = [
+  {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
   {id: 'EUR', name: 'Euro'},
+  {id: 'CNY', name: 'Chinese Yuan'},
+  {id: 'CZK', name: 'Czech Koruna'},
+  {id: 'INR', name: 'Indian Rupee'},
+  {id: 'PHP', name: 'Philippine Peso'},
+  {id: 'KRW', name: 'South Korean Won'},
+  {id: 'JPY', name: 'Japanese Yen'},
+  {id: 'SAR', name: 'Saudi Riyal'},
   {id: 'UGX', name: 'Ugandan Shillings'},
   {id: 'KES', name: 'Kenyan Shillings'},
   {id: 'GHS', name: 'Ghanian Cedi'},
   {id: 'ZAR', name: 'South African Rand'},
-  {id: 'ZMW', name: 'Zambian Kwacha'}
+  {id: 'ZMW', name: 'Zambian Kwacha'},
+  {id: 'RWF', name: 'Rwandan Franc'},
+  {id: 'SLL', name: 'Sierra Leonean Leone'},
+  {id: 'SOS', name: 'Somali Shilling'},
+  {id: 'AOA', name: 'Angolan Kwanza'},
+  {id: 'BWP', name: 'Botswana Pula'},
+  {id: 'ILS', name: 'Israeli New Sheqel'},
+  {id: 'EGP', name: 'Egyptian Pound'}
   ];
 
 const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
@@ -90,7 +105,6 @@ let getData = fetch(endpoint)
         return;
       }
       response.json().then(function(data) {
-        console.log(data);
         conversionSucceeded(data);
       });
   });
