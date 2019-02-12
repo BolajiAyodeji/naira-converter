@@ -1,0 +1,30 @@
+{
+  "name": "naira-converter",
+  "version": "1.0.0",
+  "description": "A simple PWA currency to Naira converter",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/js -d public/js -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BolajiAyodeji/naira-converter.git"
+  },
+  "keywords": [
+    "currency",
+    "converter",
+    "naira"
+  ],
+  "author": "Bolaji Ayodeji",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BolajiAyodeji/naira-converter/issues"
+  },
+  "homepage": "https://github.com/BolajiAyodeji/naira-converter#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1"
+  }
+}

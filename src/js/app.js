@@ -1,15 +1,31 @@
 const currencies = [
+  {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
+  {id: 'EUR', name: 'Euro'},
+  {id: 'GBP', name: 'Pounds'},
+  {id: 'CNY', name: 'Chinese Yuan'},
+  {id: 'CZK', name: 'Czech Koruna'},
+  {id: 'INR', name: 'Indian Rupee'},
+  {id: 'PHP', name: 'Philippine Peso'},
+  {id: 'KRW', name: 'South Korean Won'},
+  {id: 'JPY', name: 'Japanese Yen'},
+  {id: 'SAR', name: 'Saudi Riyal'},
   {id: 'UGX', name: 'Ugandan Shillings'},
   {id: 'KES', name: 'Kenyan Shillings'},
   {id: 'GHS', name: 'Ghanian Cedi'},
-  {id: 'ZAR', name: 'South African Rand'}
+  {id: 'ZAR', name: 'South African Rand'},
+  {id: 'ZMW', name: 'Zambian Kwacha'},
+  {id: 'RWF', name: 'Rwandan Franc'},
+  {id: 'SLL', name: 'Sierra Leonean Leone'},
+  {id: 'SOS', name: 'Somali Shilling'},
+  {id: 'AOA', name: 'Angolan Kwanza'},
+  {id: 'BWP', name: 'Botswana Pula'},
+  {id: 'ILS', name: 'Israeli New Sheqel'},
+  {id: 'EGP', name: 'Egyptian Pound'}
   ];
 
 const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
-const api = (currency) => `
-${apiBase}convert?q=${currency}_NGN&compact=ultra
-`;
+const api = (currency) => `${apiBase}convert?q=${currency}_NGN&compact=ultra`;
 
 const toast = (msg) => {
 const toastr = document.querySelector('.messages');
@@ -18,7 +34,7 @@ if(!toastr) return;
 toastr.textContent = msg;
 if(!toastr.classList.contains('on')) {
 toastr.classList.add('on');
-}
+ }
 };
 
 const doneToasting = () => {
@@ -31,7 +47,7 @@ toastr.classList.remove('on');
 
 const conversionSucceeded = (apiResponse) => {
 if(!apiResponse) {
-toast(`nothing to display ...`);
+toast(`connection error! check your network and try again ...`);
 return;
 }
 
@@ -50,14 +66,23 @@ doneToasting();
 };
 
 // declare populateCurrencies here
+const populateCurrencies = () => {
+  let select = document.querySelector('.select-text');
 
-const getSelectedCurrency = () => {
+  for(let i = 0; i < currencies.length; i++) {
+  let optItem = currencies[i];
+  let newOption = document.createElement('option');
+  newOption.textContent = optItem.name;
+  newOption.value = optItem.id;
+  select.appendChild(newOption);
+  }
+}
+
 // here, determine and return the selected value
 // of the SELECT element
+const getSelectedCurrency = () => {
 let display = document.querySelector('.select-text').value;
 return display;
-
-
 };
 
 const convert = (event) => {
@@ -81,27 +106,19 @@ const endpoint = api(selected);
 // then call conversionSucceeded and pass the JSON data to it
 
 let getData = fetch(endpoint)
-  getData.then((response) => response.json())
-  getData.then(function(data) {
-    console.log(data);
-    conversionSucceeded(getData);
-  })
-  .catch(function(error) {
-    console.log(JSON.stringify(error));
+  getData.then(
+    (response) => {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
+        return;
+      }
+      response.json().then(function(data) {
+          for (index in data)
+          console.log('₦' + data[index]*100);
+        conversionSucceeded(data);
+      });
   });
 };
-
-const populateCurrencies = () => {
-let select = document.querySelector('.select-text');
-
-for(let i = 0; i < currencies.length; i++) {
-let optItem = currencies[i];
-let newOption = document.createElement('option');
-newOption.textContent = optItem.name;
-newOption.value = optItem.id;
-select.appendChild(newOption);
-}
-}
 
 const startApp = () => {
 // call populateCurrencies here
@@ -113,3 +130,13 @@ btn.addEventListener('click', convert);
 };
 
 startApp();
+
+// register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js')
+          .then(function () {
+              console.log("Service Worker Registered");
+          });
+  });
+}
