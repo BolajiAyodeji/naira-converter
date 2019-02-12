@@ -56,7 +56,7 @@ const getSelectedCurrency = () => {
 // of the SELECT element
 let display = document.querySelector('.select-text').value;
 return display;
-let selectedItem = document.querySelector('.messages');
+
 
 };
 
@@ -83,12 +83,12 @@ const endpoint = api(selected);
 let getData = fetch(endpoint)
   getData.then((response) => response.json())
   getData.then(function(data) {
+    console.log(data);
     conversionSucceeded(getData);
   })
   .catch(function(error) {
     console.log(JSON.stringify(error));
   });
-console.log(getData);
 
 };
 
