@@ -1,5 +1,3 @@
-import sumAll from './maths.js'
-
 const currencies = [
   {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
@@ -115,7 +113,7 @@ let getData = fetch(endpoint)
         return;
       }
       response.json().then(function(data) {
-          for (index in data)
+          for (let index in data)
           console.log('₦' + data[index]*100);
         conversionSucceeded(data);
       });
