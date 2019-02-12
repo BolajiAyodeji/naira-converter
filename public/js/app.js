@@ -83,15 +83,21 @@ const endpoint = api(selected);
 // then call conversionSucceeded and pass the JSON data to it
 
 let getData = fetch(endpoint)
-  getData.then((response) => response.json())
-  getData.then(function(data) {
-    console.log(data);
-    conversionSucceeded(getData);
-  })
-  .catch(function(error) {
-    console.log(JSON.stringify(error));
+  getData.then(
+    (response) => {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' + response.status);
+        return;
+      }
+      response.json().then(function(data) {
+        console.log(data);
+        conversionSucceeded(data);
+      });
   });
 };
+
+
+
 
 const populateCurrencies = () => {
 let select = document.querySelector('.select-text');
