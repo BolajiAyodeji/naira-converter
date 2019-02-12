@@ -111,8 +111,6 @@ let getData = fetch(endpoint)
 };
 
 
-
-
 const populateCurrencies = () => {
 let select = document.querySelector('.select-text');
 
@@ -122,7 +120,7 @@ let newOption = document.createElement('option');
 newOption.textContent = optItem.name;
 newOption.value = optItem.id;
 select.appendChild(newOption);
-}
+ }
 }
 
 const startApp = () => {
