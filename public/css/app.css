@@ -10,14 +10,16 @@ body {
   margin-top: 50px;
 }
 .conversion {
-  margin: 25px 0;
+  margin: 25px 31.250em;
+  padding: 10px;
+  background: #ddd;
 }
 .btn {
   margin-top: 20px;
   padding: 20px;
 }
 .messages {
-  margin-top: 100px;
-  padding: 10px;
+  margin: 25px;
+  font-size: 13px;
   background: #ddd;
 }

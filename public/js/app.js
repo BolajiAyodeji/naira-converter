@@ -105,6 +105,8 @@ let getData = fetch(endpoint)
         return;
       }
       response.json().then(function(data) {
+          for (index in data)
+          console.log(data[index]*100);
         conversionSucceeded(data);
       });
   });
