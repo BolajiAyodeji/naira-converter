@@ -24,9 +24,7 @@ const currencies = [
   ];
 
 const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
-const api = (currency) => `
-${apiBase}convert?q=${currency}_NGN&compact=ultra
-`;
+const api = (currency) => `${apiBase}convert?q=${currency}_NGN&compact=ultra`;
 
 const toast = (msg) => {
 const toastr = document.querySelector('.messages');
@@ -35,7 +33,7 @@ if(!toastr) return;
 toastr.textContent = msg;
 if(!toastr.classList.contains('on')) {
 toastr.classList.add('on');
-}
+ }
 };
 
 const doneToasting = () => {
@@ -48,7 +46,7 @@ toastr.classList.remove('on');
 
 const conversionSucceeded = (apiResponse) => {
 if(!apiResponse) {
-toast(`nothing to display ...`);
+toast(`connection error! check your network and try again ...`);
 return;
 }
 
@@ -67,14 +65,23 @@ doneToasting();
 };
 
 // declare populateCurrencies here
+const populateCurrencies = () => {
+  let select = document.querySelector('.select-text');
 
-const getSelectedCurrency = () => {
+  for(let i = 0; i < currencies.length; i++) {
+  let optItem = currencies[i];
+  let newOption = document.createElement('option');
+  newOption.textContent = optItem.name;
+  newOption.value = optItem.id;
+  select.appendChild(newOption);
+  }
+}
+
 // here, determine and return the selected value
 // of the SELECT element
+const getSelectedCurrency = () => {
 let display = document.querySelector('.select-text').value;
 return display;
-
-
 };
 
 const convert = (event) => {
@@ -111,19 +118,6 @@ let getData = fetch(endpoint)
       });
   });
 };
-
-
-const populateCurrencies = () => {
-let select = document.querySelector('.select-text');
-
-for(let i = 0; i < currencies.length; i++) {
-let optItem = currencies[i];
-let newOption = document.createElement('option');
-newOption.textContent = optItem.name;
-newOption.value = optItem.id;
-select.appendChild(newOption);
- }
-}
 
 const startApp = () => {
 // call populateCurrencies here
