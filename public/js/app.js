@@ -82,11 +82,13 @@ const endpoint = api(selected);
 
 let getData = fetch(endpoint)
   getData.then((response) => response.json())
-  JSON.parse()
+  getData.then(function(data) {
+    console.log(data);
+    conversionSucceeded(getData);
+  })
   .catch(function(error) {
     console.log(JSON.stringify(error));
   });
-
 };
 
 const populateCurrencies = () => {
