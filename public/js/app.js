@@ -106,7 +106,7 @@ let getData = fetch(endpoint)
       }
       response.json().then(function(data) {
           for (index in data)
-          console.log(data[index]*100);
+          console.log('₦' + data[index]*100);
         conversionSucceeded(data);
       });
   });
