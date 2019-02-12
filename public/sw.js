@@ -19,7 +19,6 @@ self.addEventListener('fetch', function (event) {
               '/index.html',
               '/index.html?homescreen=1',
               './img/logo.png',
-              'https://free.currencyconverterapi.com',
               'https://fonts.googleapis.com/css?family=Roboto+Mono',
               'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css',
               'https://code.jquery.com/jquery-3.3.1.slim.min.js',
