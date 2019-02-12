@@ -1,3 +1,5 @@
+import sumAll from './maths.js'
+
 const currencies = [
   {id: 'BTC', name: 'Bitcoin'},
   {id: 'USD', name: 'US Dollars'},
