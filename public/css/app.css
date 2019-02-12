@@ -1,5 +1,8 @@
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
 body {
-  margin: 15px;
+  font-family: 'Roboto Mono', monospace;
   background-color: white;
   text-align: center;
 }
@@ -10,7 +13,6 @@ body {
   margin: 25px 0;
 }
 .btn {
-  width: 100%;
   margin-top: 20px;
   padding: 20px;
 }

@@ -7,25 +7,33 @@
 
   <link rel="stylesheet" href="css/app.css">
 
+
   <title>Mini App</title>
 
   </head>
   <body>
 
-    <h2>Naira Converter</h2>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Naira Converter</h1>
+    <p class="lead">This is a simple PWA app that converts from other currencies to Naira.</p>
+    <hr class="my-4">
+  </div>
+</div>
 
     <div class="select-currency select">
       <select class="select-text">
         <option selected disabled>Choose Currency</option>
       </select>
     </div>
-    <button class="btn">Convert</button>
+    <button class="btn btn-primary btn-lg btn-block">Convert</button>
 
     <div class="conversion mdc-elevation--z3">
       <div class="messages"></div>
     </div>
 
 <script src="js/app.js"></script>
+
 
 </body>
 </html>
