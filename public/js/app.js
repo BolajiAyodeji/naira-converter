@@ -8,7 +8,7 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var currencies = [{
+const currencies = [{
   id: 'BTC',
   name: 'Bitcoin'
 }, {
@@ -78,14 +78,12 @@ var currencies = [{
   id: 'EGP',
   name: 'Egyptian Pound'
 }];
-var apiBase = 'https://free.currencyconverterapi.com/api/v6/';
+const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
 
-var api = function api(currency) {
-  return "".concat(apiBase, "convert?q=").concat(currency, "_NGN&compact=ultra");
-};
+const api = currency => `${apiBase}convert?q=${currency}_NGN&compact=ultra`;
 
-var toast = function toast(msg) {
-  var toastr = document.querySelector('.messages');
+const toast = msg => {
+  const toastr = document.querySelector('.messages');
   if (!toastr) return;
   toastr.textContent = msg;
 
@@ -94,27 +92,27 @@ var toast = function toast(msg) {
   }
 };
 
-var doneToasting = function doneToasting() {
-  var toastr = document.querySelector('.messages');
+const doneToasting = () => {
+  const toastr = document.querySelector('.messages');
   if (!toastr) return;
   toastr.textContent = '';
   toastr.classList.remove('on');
 };
 
-var conversionSucceeded = function conversionSucceeded(apiResponse) {
+const conversionSucceeded = apiResponse => {
   if (!apiResponse) {
-    toast("connection error! check your network and try again ...");
+    toast(`connection error! check your network and try again ...`);
     return;
   }
 
-  var _Object$values = Object.values(apiResponse),
-      _Object$values2 = _slicedToArray(_Object$values, 1),
-      value = _Object$values2[0];
+  const _Object$values = Object.values(apiResponse),
+        _Object$values2 = _slicedToArray(_Object$values, 1),
+        value = _Object$values2[0];
 
-  var btn = document.querySelector('button');
+  const btn = document.querySelector('button');
   btn.removeAttribute('disabled');
-  var display = document.querySelector('.conversion');
-  var formatter = new Intl.NumberFormat('en-NG', {
+  const display = document.querySelector('.conversion');
+  const formatter = new Intl.NumberFormat('en-NG', {
     style: 'currency',
     currency: 'NGN'
   });
@@ -123,12 +121,12 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
 }; // declare populateCurrencies here
 
 
-var populateCurrencies = function populateCurrencies() {
-  var select = document.querySelector('.select-text');
+const populateCurrencies = () => {
+  let select = document.querySelector('.select-text');
 
-  for (var i = 0; i < currencies.length; i++) {
-    var optItem = currencies[i];
-    var newOption = document.createElement('option');
+  for (let i = 0; i < currencies.length; i++) {
+    let optItem = currencies[i];
+    let newOption = document.createElement('option');
     newOption.textContent = optItem.name;
     newOption.value = optItem.id;
     select.appendChild(newOption);
@@ -137,46 +135,41 @@ var populateCurrencies = function populateCurrencies() {
 // of the SELECT element
 
 
-var getSelectedCurrency = function getSelectedCurrency() {
-  var display = document.querySelector('.select-text').value;
+const getSelectedCurrency = () => {
+  let display = document.querySelector('.select-text').value;
   return display;
 };
 
-var convert = function convert(event) {
-  toast("preparing to convert ...");
-  var btn = event ? event.target : document.querySelector('button');
-  var selected = getSelectedCurrency();
-  if (!selected || selected.trim() === '' || !currencies.map(function (c) {
-    return c.id;
-  }).includes(selected)) return;
+const convert = event => {
+  toast(`preparing to convert ...`);
+  const btn = event ? event.target : document.querySelector('button');
+  const selected = getSelectedCurrency();
+  if (!selected || selected.trim() === '' || !currencies.map(c => c.id).includes(selected)) return;
   btn.setAttribute('disabled', 'disabled');
-  toast("converting ...");
-  var endpoint = api(selected); // make a GET fetch call to the endpoint
+  toast(`converting ...`);
+  const endpoint = api(selected); // make a GET fetch call to the endpoint
   // variable declared above, convert the response to JSON,
   // then call conversionSucceeded and pass the JSON data to it
 
-  var getData = fetch(endpoint);
-  getData.then(function (response) {
+  let getData = fetch(endpoint);
+  getData.then(response => {
     if (response.status !== 200) {
       console.log('Looks like there was a problem. Status Code: ' + response.status);
       return;
     }
 
     response.json().then(function (data) {
-      for (index in data) {
-        console.log('₦' + data[index] * 100);
-      }
-
+      for (let index in data) console.log('₦' + data[index] * 100);
       conversionSucceeded(data);
     });
   });
 };
 
-var startApp = function startApp() {
+const startApp = () => {
   // call populateCurrencies here
   populateCurrencies(); // add a click listener to the button here
 
-  var btn = document.querySelector('button');
+  let btn = document.querySelector('button');
   btn.addEventListener('click', convert);
 };
 

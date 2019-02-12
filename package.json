@@ -2,7 +2,7 @@
   "name": "naira-converter",
   "version": "1.0.0",
   "description": "A simple PWA currency to Naira converter",
-  "main": "app.js",
+  "main": "/public/js/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src/js -d public/js -w"
