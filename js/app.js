@@ -82,10 +82,7 @@ const endpoint = api(selected);
 
 let getData = fetch(endpoint)
   getData.then((response) => response.json())
-  getData.then(function(data) {
-    console.log(data);
-    conversionSucceeded(getData);
-  })
+  JSON.parse()
   .catch(function(error) {
     console.log(JSON.stringify(error));
   });
