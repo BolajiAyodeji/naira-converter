@@ -120,7 +120,7 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
     currency: 'NGN'
   });
   var inputAmount = document.getElementById('inputAmount').value;
-  var valResult = document.querySelector('.messages'); //Check if no value is passed
+  var valMsg = document.querySelector('.messages'); //Check if no value is passed
 
   if (!inputAmount) {
     alert('Enter amount first!');

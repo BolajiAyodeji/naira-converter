@@ -63,7 +63,7 @@ const formatter = new Intl.NumberFormat(
 );
 
 let inputAmount = document.getElementById('inputAmount').value;
-let valResult = document.querySelector('.messages');
+let valMsg = document.querySelector('.messages');
 
 //Check if no value is passed
   if (!inputAmount) {
