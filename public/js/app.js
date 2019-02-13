@@ -119,7 +119,8 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
     style: 'currency',
     currency: 'NGN'
   });
-  display.textContent = formatter.format(value);
+  var inputAmount = document.getElementById('inputAmount').value;
+  display.textContent = formatter.format(value * inputAmount);
   doneToasting();
 }; // here, determine and return the selected value
 // of the SELECT element
@@ -152,10 +153,8 @@ var convert = function convert(event) {
 
     response.json().then(function (data) {
       for (var index in data) {
-        console.log('₦' + data[index] * 100);
+        conversionSucceeded(data);
       }
-
-      conversionSucceeded(data);
     });
   });
 }; // declare populateCurrencies here

@@ -61,8 +61,8 @@ const display = document.querySelector('.conversion');
 const formatter = new Intl.NumberFormat(
 'en-NG', { style: 'currency', currency: 'NGN' }
 );
-
-display.textContent = formatter.format(value);
+let inputAmount = document.getElementById('inputAmount').value;
+display.textContent = formatter.format(value*inputAmount);
 doneToasting();
 };
 
@@ -103,7 +103,6 @@ let getData = fetch(endpoint)
       }
       response.json().then(function(data) {
           for (let index in data)
-          console.log('₦' + data[index]*100);
         conversionSucceeded(data);
       });
   });

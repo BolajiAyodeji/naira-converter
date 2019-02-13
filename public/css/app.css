@@ -28,7 +28,6 @@ img {
   align-items: center;
   font-size: 150%;
 }
-
 .messages {
   padding: 10px;
   color: #000;
@@ -39,7 +38,6 @@ img {
   margin-bottom: -30px;
   transition: opacity 2s easn-in;
 }
-
 .messages.on {
   opacity: 1;
 }
