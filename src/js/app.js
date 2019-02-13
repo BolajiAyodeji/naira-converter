@@ -66,18 +66,6 @@ display.textContent = formatter.format(value);
 doneToasting();
 };
 
-// declare populateCurrencies here
-const populateCurrencies = () => {
-  let select = document.querySelector('.select-text');
-
-  for(let i = 0; i < currencies.length; i++) {
-  let optItem = currencies[i];
-  let newOption = document.createElement('option');
-  newOption.textContent = optItem.name;
-  newOption.value = optItem.id;
-  select.appendChild(newOption);
-  }
-}
 
 // here, determine and return the selected value
 // of the SELECT element
@@ -120,6 +108,19 @@ let getData = fetch(endpoint)
       });
   });
 };
+
+// declare populateCurrencies here
+const populateCurrencies = () => {
+  let select = document.querySelector('.select-text');
+
+  for(let i = 0; i < currencies.length; i++) {
+  let optItem = currencies[i];
+  let newOption = document.createElement('option');
+  newOption.textContent = optItem.name;
+  newOption.value = optItem.id;
+  select.appendChild(newOption);
+  }
+}
 
 const startApp = () => {
 // call populateCurrencies here

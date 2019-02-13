@@ -121,19 +121,6 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
   });
   display.textContent = formatter.format(value);
   doneToasting();
-}; // declare populateCurrencies here
-
-
-var populateCurrencies = function populateCurrencies() {
-  var select = document.querySelector('.select-text');
-
-  for (var i = 0; i < currencies.length; i++) {
-    var optItem = currencies[i];
-    var newOption = document.createElement('option');
-    newOption.textContent = optItem.name;
-    newOption.value = optItem.id;
-    select.appendChild(newOption);
-  }
 }; // here, determine and return the selected value
 // of the SELECT element
 
@@ -171,6 +158,19 @@ var convert = function convert(event) {
       conversionSucceeded(data);
     });
   });
+}; // declare populateCurrencies here
+
+
+var populateCurrencies = function populateCurrencies() {
+  var select = document.querySelector('.select-text');
+
+  for (var i = 0; i < currencies.length; i++) {
+    var optItem = currencies[i];
+    var newOption = document.createElement('option');
+    newOption.textContent = optItem.name;
+    newOption.value = optItem.id;
+    select.appendChild(newOption);
+  }
 };
 
 var startApp = function startApp() {
