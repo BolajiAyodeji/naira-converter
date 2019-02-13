@@ -63,6 +63,7 @@ const formatter = new Intl.NumberFormat(
 );
 
 let inputAmount = document.getElementById('inputAmount').value;
+let valResult = document.querySelector('.messages');
 
 //Check if no value is passed
   if (!inputAmount) {
@@ -70,7 +71,7 @@ let inputAmount = document.getElementById('inputAmount').value;
   }
 //Check if inputAmount number contains unwanted characters
   if (inputAmount.match(/[^0-9]/)) {
-    alert('inputAmount number contains unwanted characters')
+    alert('Input contains unwanted characters')
   }
   else {
     display.textContent = formatter.format(value*inputAmount);

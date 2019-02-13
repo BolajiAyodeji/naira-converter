@@ -119,7 +119,8 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
     style: 'currency',
     currency: 'NGN'
   });
-  var inputAmount = document.getElementById('inputAmount').value; //Check if no value is passed
+  var inputAmount = document.getElementById('inputAmount').value;
+  var valResult = document.querySelector('.messages'); //Check if no value is passed
 
   if (!inputAmount) {
     alert('Enter amount first!');
@@ -127,7 +128,7 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
 
 
   if (inputAmount.match(/[^0-9]/)) {
-    alert('inputAmount number contains unwanted characters');
+    alert('Input contains unwanted characters');
   } else {
     display.textContent = formatter.format(value * inputAmount);
     doneToasting();
