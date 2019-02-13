@@ -61,9 +61,21 @@ const display = document.querySelector('.conversion');
 const formatter = new Intl.NumberFormat(
 'en-NG', { style: 'currency', currency: 'NGN' }
 );
+
 let inputAmount = document.getElementById('inputAmount').value;
-display.textContent = formatter.format(value*inputAmount);
-doneToasting();
+
+//Check if no value is passed
+  if (!inputAmount) {
+    alert('Enter amount first!')
+  }
+//Check if inputAmount number contains unwanted characters
+  if (inputAmount.match(/[^0-9]/)) {
+    alert('inputAmount number contains unwanted characters')
+  }
+  else {
+    display.textContent = formatter.format(value*inputAmount);
+    doneToasting();
+  }
 };
 
 
