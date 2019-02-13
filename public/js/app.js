@@ -79,9 +79,10 @@ var currencies = [{
   name: 'Egyptian Pound'
 }];
 var apiBase = 'https://free.currencyconverterapi.com/api/v6/';
+var apiKey = '&apiKey=38cbf6ea7785dbd742f5';
 
 var api = function api(currency) {
-  return "".concat(apiBase, "convert?q=").concat(currency, "_NGN&compact=ultra");
+  return "".concat(apiBase, "convert?q=").concat(currency, "_NGN&compact=ultra").concat(apiKey);
 };
 
 var toast = function toast(msg) {

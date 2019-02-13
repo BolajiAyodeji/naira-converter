@@ -25,7 +25,8 @@ const currencies = [
   ];
 
 const apiBase = 'https://free.currencyconverterapi.com/api/v6/';
-const api = (currency) => `${apiBase}convert?q=${currency}_NGN&compact=ultra`;
+const apiKey = '&apiKey=38cbf6ea7785dbd742f5';
+const api = (currency) => `${apiBase}convert?q=${currency}_NGN&compact=ultra${apiKey}`;
 
 const toast = (msg) => {
 const toastr = document.querySelector('.messages');
