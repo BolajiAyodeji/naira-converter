@@ -1,77 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-
-   <title>Naira Converter</title>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="shortcut icon" href="img/logo.png">
-
-
-
-  </head>
-  <body>
-
-<!-- Main -->
-<div class="d-md-flex h-md-100 align-items-center">
-	<div class="col-md-6 p-0 bg-color h-md-100">
-		<div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
-			<div class="logoarea pt-5 pb-5">
-				<p><img src="./img/logo.png"></p>
-				<h3 class="mb-0 mt-3 display-4">Naira Converter</h3>
-        <hr class="mr-4">
-				<h5 class="mb-4 font-weight-light">This is a simple PWA app that converts from other currencies to Naira.</h5>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-md-6 p-0 bg-white h-md-100 loginarea">
-		<div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-    <div class="select-currency select">
-    <div class="input-group flex-nowrap">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="addon-wrapping">↹</span>
-  </div>
-  <input type="text" class="form-control" placeholder="Enter amount" aria-describedby="addon-wrapping">
-</div>
-		<div class="jumbotron">
-    <div class="container">
-      <select class="select-text">
-        <option selected disabled>Choose Currency</option>
-      </select>
-    </div>
-    <button class="btn btn-primary btn-lg btn-block">Convert to Naira</button>
-
-    <div class="conversion mdc-elevation--z3">
-      <div class="messages"></div>
-      <div class="result"></div>
-    </div>
-		</div>
-	</div>
-</div>
-<!-- End Main -->
-
-
-
-
-<script src="js/app.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-<script>
-// register service worker
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./sw.js')
-          .then(function () {
-              console.log("Service Worker Registered");
-          });
-  });
-}
-</script>
-</body>
+   <head>
+      <title>Naira Converter</title>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <link rel="stylesheet" href="css/app.css">
+      <link rel="shortcut icon" href="img/logo.png">
+   </head>
+   <body>
+      <!-- Main -->
+      <div class="d-md-flex h-md-100 align-items-center">
+      <div class="col-md-6 p-0 bg-color h-md-100">
+         <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+            <div class="logoarea pt-5 pb-5">
+               <p><img src="./img/logo.png"></p>
+               <h3 class="mb-0 mt-3 display-4">Naira Converter</h3>
+               <hr class="mr-4">
+               <h5 class="mb-4 font-weight-light">This is a simple PWA app that converts from other currencies to Naira.</h5>
+            </div>
+         </div>
+      </div>
+      <div class="col-md-6 p-0 bg-white h-md-100 loginarea">
+      <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+      <div class="select-currency select">
+         <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+               <span class="input-group-text" id="addon-wrapping">↹</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Enter amount" aria-describedby="addon-wrapping">
+         </div>
+         <div class="jumbotron">
+            <div class="container">
+               <div class="select-currency select">
+                  <select class="select-text">
+                     <option selected disabled>Choose Currency</option>
+                  </select>
+               </div>
+               <button class="btn btn-primary btn-lg btn-block">Convert to Naira</button>
+               <div class="conversion mdc-elevation--z3">
+                  <div class="messages"></div>
+                  <div class="result"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- End Main -->
+      <script src="js/app.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+      <script>
+         // register service worker
+         if ('serviceWorker' in navigator) {
+           window.addEventListener('load', function () {
+               navigator.serviceWorker.register('./sw.js')
+                   .then(function () {
+                       console.log("Service Worker Registered");
+                   });
+           });
+         }
+      </script>
+   </body>
 </html>
