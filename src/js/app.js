@@ -67,11 +67,11 @@ let valMsg = document.querySelector('.messages');
 
 //Check if no value is passed
   if (!inputAmount) {
-    alert('Enter amount first!')
+    alert('❌ Enter amount first!')
   }
 //Check if inputAmount number contains unwanted characters
   if (inputAmount.match(/[^0-9]/)) {
-    alert('Input contains unwanted characters')
+    alert('❌ Input contains unwanted characters')
   }
   else {
     display.textContent = formatter.format(value*inputAmount);
