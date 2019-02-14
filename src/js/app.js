@@ -79,9 +79,7 @@ let valMsg = document.querySelector('.messages');
   }
 };
 
-
-// here, determine and return the selected value
-// of the SELECT element
+// Determine and return the selected value of the SELECT element
 const getSelectedCurrency = () => {
 let display = document.querySelector('.select-text').value;
 return display;
@@ -103,9 +101,7 @@ toast(`converting ...`);
 
 const endpoint = api(selected);
 
-// make a GET fetch call to the endpoint
-// variable declared above, convert the response to JSON,
-// then call conversionSucceeded and pass the JSON data to it
+// GET fetch call to the endpoint
 
 let getData = fetch(endpoint)
   getData.then(
@@ -121,7 +117,7 @@ let getData = fetch(endpoint)
   });
 };
 
-// declare populateCurrencies here
+// populate the SELECT ELEMENT with Currencies
 const populateCurrencies = () => {
   let select = document.querySelector('.select-text');
 
@@ -135,10 +131,8 @@ const populateCurrencies = () => {
 }
 
 const startApp = () => {
-// call populateCurrencies here
 populateCurrencies()
 
-// add a click listener to the button here
 let btn = document.querySelector('button');
 btn.addEventListener('click', convert);
 };

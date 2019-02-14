@@ -133,8 +133,7 @@ var conversionSucceeded = function conversionSucceeded(apiResponse) {
     display.textContent = formatter.format(value * inputAmount);
     doneToasting();
   }
-}; // here, determine and return the selected value
-// of the SELECT element
+}; // Determine and return the selected value of the SELECT element
 
 
 var getSelectedCurrency = function getSelectedCurrency() {
@@ -151,9 +150,7 @@ var convert = function convert(event) {
   }).includes(selected)) return;
   btn.setAttribute('disabled', 'disabled');
   toast("converting ...");
-  var endpoint = api(selected); // make a GET fetch call to the endpoint
-  // variable declared above, convert the response to JSON,
-  // then call conversionSucceeded and pass the JSON data to it
+  var endpoint = api(selected); // GET fetch call to the endpoint
 
   var getData = fetch(endpoint);
   getData.then(function (response) {
@@ -168,7 +165,7 @@ var convert = function convert(event) {
       }
     });
   });
-}; // declare populateCurrencies here
+}; // populate the SELECT ELEMENT with Currencies
 
 
 var populateCurrencies = function populateCurrencies() {
@@ -184,9 +181,7 @@ var populateCurrencies = function populateCurrencies() {
 };
 
 var startApp = function startApp() {
-  // call populateCurrencies here
-  populateCurrencies(); // add a click listener to the button here
-
+  populateCurrencies();
   var btn = document.querySelector('button');
   btn.addEventListener('click', convert);
 };
